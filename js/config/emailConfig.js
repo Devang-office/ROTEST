@@ -1,9 +1,9 @@
 export const emailConfig = {
-    serviceId: process.env.SERVICE_ID,
-    templateId: process.env.TEMPLATE_ID,
+    serviceId: 'service_romaxro',
+    templateId: 'template_fy4izqq',
     templates: {
-        contact: process.env.TEMPLATE_ID,
-        demo: process.env.TEMPLATE_ID,    // Using the same template for demo
-        exchange: process.env.TEMPLATE_ID  // Using the same template for exchange
+        contact: 'template_fy4izqq',
+        demo: 'template_fy4izqq',    // Using the same template for demo
+        exchange: 'template_fy4izqq'  // Using the same template for exchange
     }
 };
