@@ -1,0 +1,32 @@
+name: Deploy Workflow
+
+on:
+  push:
+    branches:
+      - main  # This triggers the workflow on pushes to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Specify the environment for the job (e.g., Linux)
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Use GitHub Secrets
+      - name: Access secrets
+        env:
+          SERVICE_ID: ${{ secrets.SERVICE_ID }}         # Access the SERVICE_ID secret
+          TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}       # Access the TEMPLATE_ID secret
+          CONTACT_TEMPLATE: ${{ secrets.CONTACT_TEMPLATE }}
+          DEMO_TEMPLATE: ${{ secrets.DEMO_TEMPLATE }}
+          EXCHANGE_TEMPLATE: ${{ secrets.EXCHANGE_TEMPLATE }}
+        run: |
+          echo "Service ID: $SERVICE_ID"                 # Print the SERVICE_ID value
+          echo "Template ID: $TEMPLATE_ID"               # Print the TEMPLATE_ID value
+          echo "Contact Template: $CONTACT_TEMPLATE"
+          echo "Demo Template: $DEMO_TEMPLATE"
+          echo "Exchange Template: $EXCHANGE_TEMPLATE"
+
+      # Add any other deployment steps here
